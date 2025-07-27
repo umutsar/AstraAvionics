@@ -1,0 +1,46 @@
+
+  //0 0xAB
+
+  //1 irtifa 1 uint8_t
+  //2 irtifa 2 float32
+  //3 irtifa 3 float32
+  //4 irtifa 4 float32
+
+  //5 basınç 1 float32
+  //6 basınç 2 float32
+  //7 basınç 3 float32
+  //8 basınç 4 float32
+
+  //9 ivme x 1 float32
+  //10 ivme x 2 float32
+  //11 ivme x 3 float32
+  //12 ivme x 4 float32
+
+  //13 ivme y 1 float32
+  //14 ivme y 2 float32
+  //15 ivme y 3 float32
+  //16 ivme y 4 float32
+
+  //17 ivme z 1 float32
+  //18 ivme z 2 float32
+  //19 ivme z 3 float32
+  //20 ivme z 4 float32
+
+  //21 açı x 1 float32
+  //22 açı x 2 float32
+  //23 açı x 3 float32
+  //24 açı x 4 float32
+
+  //25 açı y 1 float32
+  //26 açı y 2 float32
+  //27 açı y 3 float32
+  //28 açı y 4 float32
+
+  //29 açı z 1 float32
+  //30 açı z 2 float32
+  //31 açı z 3 float32
+  //32 açı z 4 float32
+
+  //33 checksum uint8_t
+  //34 0x0D     uint8_t
+  //35 0X0A     uint8_t

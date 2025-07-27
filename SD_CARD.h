@@ -28,7 +28,7 @@ int find_next_file_number() {
     String name = entry.name();
     if (name.endsWith(".TXT")) {
       name.toUpperCase();
-      name.remove(name.length() - 4); // ".TXT" sil
+      name.remove(name.length() - 4);  // ".TXT" sil
       int num = name.toInt();
       if (num > maxNumber) maxNumber = num;
     }
@@ -52,9 +52,8 @@ bool create_new_log_file() {
     return false;
   }
 
-  file.println("=== Roket Uçuş Logu Başlatıldı ===");
+  file.println("btye1;byte2;byte3;byte4...");
   file.close();
-  Serial.print("✅ Yeni log dosyası: ");
   Serial.println(fileName);
   return true;
 }
@@ -69,16 +68,33 @@ bool log_line(const String& line) {
 }
 
 // -------------------- 3 Byte Veriyi Satır Olarak Logla --------------------
-bool log_three_values(uint8_t a, uint8_t b, uint8_t c) {
+// Float dizisi için
+bool log_values_float(const float* values, size_t size) {
   File file = SD.open(currentLogFile.c_str(), FILE_WRITE);
   if (!file) return false;
 
-  file.print(a); file.print(" ");
-  file.print(b); file.print(" ");
-  file.println(c);
+  for (size_t i = 0; i < size; ++i) {
+    file.print(values[i], 2);  // 2 ondalık basamak
+    if (i < size - 1) file.print(" ");
+  }
 
+  file.println();  // Satır sonu
   file.close();
   return true;
 }
 
-#endif // SD_LOGGER_H
+bool log_values(const uint8_t* values, size_t size) {
+  File file = SD.open(currentLogFile.c_str(), FILE_WRITE);
+  if (!file) return false;
+
+  for (size_t i = 0; i < size; ++i) {
+    file.print(values[i]);
+    if (i < size - 1) file.print(" ");
+  }
+
+  file.println();  // Satır sonu
+  file.close();
+  return true;
+}
+
+#endif  // SD_LOGGER_H
